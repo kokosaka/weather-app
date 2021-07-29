@@ -1,32 +1,27 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 function Weather() {
-  const [lat, setLat] = useState([]);
-  const [lon, setLon] = useState([]);
-
+  const lat = useSelector((state) => state.location.lat);
+  const lon = useSelector((state) => state.location.lon);
   useEffect(() => {
-    const fetchLocationWeather = async () => {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        setLat(position.coords.latitude);
-        setLon(position.coords.longitude);
+    axios
+      .get(
+        `${process.env.REACT_APP_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}`
+      )
+      .then((res) => {
+        console.log(res.data);
       });
-      console.log(lat, lon);
-      await axios
-        .get(
-          `${process.env.REACT_APP_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}`
-        )
-        .then((data) => {
-          console.log(data);
-        });
-    };
-    fetchLocationWeather();
   }, [lat, lon]);
 
   return (
     <div className="weather">
       <header className="weather-header">
-        <p>check weathernow</p>
+        <p>check weather now</p>
+        <p>
+          location from weather component = {lat} {lon}
+        </p>
       </header>
     </div>
   );
