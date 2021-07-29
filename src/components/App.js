@@ -8,13 +8,10 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // const fetchLocationWeather = async () => {
-    navigator.geolocation.getCurrentPosition(function (position) {
+    navigator.geolocation.getCurrentPosition((position) => {
       dispatch(setLat(position.coords.latitude));
       dispatch(setLon(position.coords.longitude));
     });
-    // };
-    // fetchLocationWeather();
   }, [dispatch]);
   return (
     <div className="App">
