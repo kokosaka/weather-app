@@ -7,6 +7,7 @@ import Temp from "./temp";
 function Weather() {
   const lat = useSelector((state) => state.location.lat);
   const lon = useSelector((state) => state.location.lon);
+  const tempUnit = useSelector((state) => state.tempUnit.unit);
   const [gotData, setGotData] = useState(false);
   const dispatch = useDispatch();
 
@@ -14,7 +15,7 @@ function Weather() {
     if (lat !== 0 && lon !== 0) {
       axios
         .get(
-          `${process.env.REACT_APP_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}`
+          `${process.env.REACT_APP_API_URL}/weather?lat=${lat}&lon=${lon}&units=${tempUnit}&appid=${process.env.REACT_APP_API_KEY}`
         )
         .then((res) => {
           dispatch(setWeatherData(res.data));
@@ -26,17 +27,17 @@ function Weather() {
           console.log(error);
         });
     }
-  }, [lat, lon, dispatch]);
+  }, [tempUnit, lat, lon, dispatch]);
 
   return (
     <div className="weather">
       <header className="weather-header">
         <p>check weather now</p>
-        <p>
-          location from weather component = {lat} {lon}
-          temps are = {gotData && <Temp />}
-        </p>
       </header>
+      <div>
+        location from weather component = {lat} {lon}
+        {gotData && <Temp />}
+      </div>
     </div>
   );
 }
