@@ -12,21 +12,27 @@ function Weather() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (lat !== 0 && lon !== 0) {
-      axios
-        .get(
-          `${process.env.REACT_APP_API_URL}/weather?lat=${lat}&lon=${lon}&units=${tempUnit}&appid=${process.env.REACT_APP_API_KEY}`
-        )
-        .then((res) => {
-          dispatch(setWeatherData(res.data));
-        })
-        .then(() => {
-          setGotData(true);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
+    (function getData() {
+      if (lat !== 0 && lon !== 0) {
+        axios
+          .get(
+            `${process.env.REACT_APP_API_URL}/weather?lat=${lat}&lon=${lon}&units=${tempUnit}&appid=${process.env.REACT_APP_API_KEY}`
+          )
+          .then((res) => {
+            dispatch(setWeatherData(res.data));
+            console.log(res);
+          })
+          .then(() => {
+            setGotData(true);
+            console.log("got data");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+
+      setTimeout(getData, 60000);
+    })();
   }, [tempUnit, lat, lon, dispatch]);
 
   return (
