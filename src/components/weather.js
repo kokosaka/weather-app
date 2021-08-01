@@ -31,13 +31,7 @@ function Weather() {
 
   return (
     <div className="weather">
-      <header className="weather-header">
-        <p>check weather now</p>
-      </header>
-      <div>
-        location from weather component = {lat} {lon}
-        {gotData && <Temp />}
-      </div>
+      <div>{gotData && <Temp />}</div>
     </div>
   );
 }
