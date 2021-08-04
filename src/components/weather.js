@@ -24,7 +24,6 @@ function Weather() {
           })
           .then(() => {
             setGotData(true);
-            console.log("got data");
           })
           .catch((error) => {
             console.log(error);

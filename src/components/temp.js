@@ -34,13 +34,7 @@ function Temp() {
     <div className="temps">
       <div> {weather.name} </div>
       <div>
-        {weather.main.temp} {sym}
-      </div>
-      <div>
-        {weather.main.temp_min} {sym}
-      </div>
-      <div>
-        {weather.main.temp_max} {sym}
+        {Math.round(weather.main.temp)} {sym}
       </div>
       <div>{weather.main.humidity} %</div>
       <Wind />

@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 function Wind() {
   const wind = useSelector((state) => state.weather.wind);
