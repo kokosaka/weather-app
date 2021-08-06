@@ -3,10 +3,12 @@ import Hamburger from "./hamburger";
 import Xlose from "./xlose";
 import { useSelector, useDispatch } from "react-redux";
 import { setImperial, setMetric } from "../redux/features/tempUnitSlice";
+import { setFull, setHalf } from "../redux/features/hourConverterSlice";
 
 function Menu() {
   const [showMenu, setShowMenu] = useState("out");
   const tempUnit = useSelector((state) => state.tempUnit);
+  const hourUnit = useSelector((state) => state.hourUnit.unit);
   const dispatch = useDispatch();
 
   function convertUnit() {
@@ -14,6 +16,14 @@ function Menu() {
       dispatch(setMetric());
     } else {
       dispatch(setImperial());
+    }
+  }
+
+  function hourConverter() {
+    if (hourUnit === "twelve") {
+      dispatch(setFull());
+    } else {
+      dispatch(setHalf());
     }
   }
 
@@ -25,6 +35,9 @@ function Menu() {
         </div>
         <button onClick={() => convertUnit()}>
           Convert to {tempUnit === "imperial" ? "Metric" : "Imperial"}
+        </button>
+        <button onClick={() => hourConverter()}>
+          Convert to {hourUnit === "twelve" ? "24" : "12"} hour format
         </button>
       </div>
       <div className="hamburger" onClick={() => setShowMenu("in")}>
