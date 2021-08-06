@@ -1,9 +1,11 @@
 import "../styles.css";
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setLat, setLon } from "../redux/features/getLocationSlice";
-import Weather from "./weather";
+import Weather from "./weather/weather";
 import Time from "./time";
+import Menu from "./menu";
+
 function App() {
   const dispatch = useDispatch();
 
@@ -15,9 +17,9 @@ function App() {
   }, [dispatch]);
   return (
     <div className="App">
-      <header className="App-header"></header>
-      <Weather />
+      <Menu />
       <Time />
+      <Weather />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setWeatherData } from "../redux/features/weatherDataSlice";
+import { setWeatherData } from "../../redux/features/weatherDataSlice";
 import Temp from "./temp";
 
 function Weather() {

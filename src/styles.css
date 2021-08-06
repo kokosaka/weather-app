@@ -8,3 +8,43 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.hamburger {
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  left: 0;
+}
+
+@keyframes slideIn {
+  0% {left: -20%;}
+  100% {left: 0%}
+}
+@keyframes slideOut {
+  0% {left: 0%}
+  100% {left: -20%;}
+}
+
+#menu {
+  background-color: black;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: fixed;
+  top: 0;
+  width: 15%;
+  height: 100%;
+  padding: 10px;
+
+}
+
+#menu.in {
+left: 0%;
+  animation-name: slideIn;
+  animation-duration: 1s;
+}
+#menu.out {
+  left: -40%;
+  animation-name: slideOut;
+  animation-duration: 1s;
+}

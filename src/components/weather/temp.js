@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setImperial, setMetric } from "../redux/features/tempUnitSlice";
+
 import Wind from "./wind";
 
 function Temp() {
@@ -9,17 +9,9 @@ function Temp() {
   const sym = `°${tempUnit.symbol}`;
   const sunrise = convertTime(weather.sys.sunrise);
   const sunset = convertTime(weather.sys.sunset);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   useEffect(() => {}, []);
-
-  function convertUnit() {
-    if (tempUnit.unit === "imperial") {
-      dispatch(setMetric());
-    } else {
-      dispatch(setImperial());
-    }
-  }
 
   function convertTime(unix) {
     let date = new Date(unix * 1000);
@@ -41,9 +33,6 @@ function Temp() {
       <div>{weather.clouds.all} %</div>
       <div>{sunrise}</div>
       <div>{sunset}</div>
-      <button onClick={() => convertUnit()}>
-        Convert to {tempUnit === "imperial" ? "Metric" : "Imperial"}
-      </button>
     </div>
   );
 }
