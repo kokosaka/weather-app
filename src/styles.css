@@ -4,15 +4,15 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: space-evenly;
-  font-size: calc(10px + 2vmin);
+  justify-content:space-between;
+    font-size: calc(10px + 3vmin);
   color: white;
 }
 
 .hamburger {
   position: fixed;
   padding: 10px;
-  top: 0;
+  bottom: 0;
   left: 0;
 }
 
@@ -49,7 +49,17 @@ left: 0%;
   animation-name: slideOut;
   animation-duration: 1s;
 }
+small {
+  font-size: calc(10px + 1vmin);
+}
+
+.temp-info {
+  display: flex;
+  flex-direction: column;
+}
 .weather {
+
 }
 .time {
+
 }
