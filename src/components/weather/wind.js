@@ -26,10 +26,13 @@ function Wind() {
   }
   return (
     <div className="wind">
-      <div>
+      <div className="temp-info">
+        <small>Wind Speed</small>
         {wind.speed} {spd}
       </div>
-      <div>
+
+      <div className="temp-info">
+        <small>Wind Direction</small>
         {winderly} {wind.deg}
       </div>
     </div>

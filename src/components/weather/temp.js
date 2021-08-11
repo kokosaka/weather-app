@@ -28,11 +28,26 @@ function Temp() {
       <div>
         {Math.round(weather.main.temp)} {sym}
       </div>
-      <div>{weather.main.humidity} %</div>
+      <div className="temp-info">
+        <small>Humidity</small>
+        {weather.main.humidity} %
+      </div>
       <Wind />
-      <div>{weather.clouds.all} %</div>
-      <div>{sunrise}</div>
-      <div>{sunset}</div>
+
+      <div className="temp-info">
+        <small>Cloud Coverage</small>
+        {weather.clouds.all} %
+      </div>
+
+      <div className="temp-info">
+        <small>Sunrise</small>
+        {sunrise}
+      </div>
+
+      <div className="temp-info">
+        <small>Sunset</small>
+        {sunset}
+      </div>
     </div>
   );
 }

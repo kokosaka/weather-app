@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setLat, setLon } from "../redux/features/getLocationSlice";
 import Weather from "./weather/weather";
+import Marine from "./marine";
 import Time from "./time";
 import Menu from "./menu";
 
@@ -16,10 +17,13 @@ function App() {
     });
   }, [dispatch]);
   return (
-    <div className="App">
+    <div>
       <Menu />
-      <Weather />
-      <Time />
+      <div className="App">
+        <Weather />
+        <Time />
+        <Marine />
+      </div>
     </div>
   );
 }

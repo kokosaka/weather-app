@@ -4,9 +4,7 @@ import { useEffect, useState } from "react";
 function Marine() {
   return (
     <div className="weather">
-      <header className="weather-header">
-        <p>check weathernow</p>
-      </header>
+      <p>check weathernow</p>
     </div>
   );
 }
