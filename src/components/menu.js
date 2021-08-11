@@ -6,7 +6,7 @@ import { setImperial, setMetric } from "../redux/features/tempUnitSlice";
 import { setFull, setHalf } from "../redux/features/hourConverterSlice";
 
 function Menu() {
-  const [showMenu, setShowMenu] = useState("out");
+  const [showMenu, setShowMenu] = useState("");
   const tempUnit = useSelector((state) => state.tempUnit);
   const hourUnit = useSelector((state) => state.hourUnit.unit);
   const dispatch = useDispatch();

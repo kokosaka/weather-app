@@ -18,8 +18,8 @@ function App() {
   return (
     <div className="App">
       <Menu />
-      <Time />
       <Weather />
+      <Time />
     </div>
   );
 }

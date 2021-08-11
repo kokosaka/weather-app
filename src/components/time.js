@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 function Time() {
   const [currentTime, setCurrentTime] = useState("");
   const hourUnit = useSelector((state) => state.hourUnit.unit);
